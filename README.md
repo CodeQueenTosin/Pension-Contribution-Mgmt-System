@@ -108,6 +108,73 @@ Hangfire Dashboard Access: Ensure you have the correct credentials (if authentic
 Port Conflicts: If the default port is occupied, update the port in Properties/launchSettings.json.
 
 
+📚 API Documentation
+
+The API is documented using Swagger UI, accessible at https://localhost:{port}/swagger. Key endpoints include:
+
+Endpoint
+
+Method
+
+Description
+
+/api/members
+POST
+Register a new member
+
+
+/api/members/{id}
+GET
+Retrieve member details
+
+/api/members/{id}
+PUT
+Update member information
+
+/api/members/{id}
+DELETE
+Soft-delete a member
+
+/api/contributions
+POST
+Record a contribution
+
+/api/contributions/statements/{memberId}
+GET
+Generate contribution statement
+
+🏛️ Architecture Overview
+
+The project follows Clean Architecture principles, organized into three layers:
+
+Domain Layer: Contains business entities (e.g., Member, Contribution) and interfaces for repositories and services. Independent of external frameworks.
+
+Application Layer: Houses business logic, DTOs, and application services. Orchestrates use cases like member registration and contribution tracking.
+
+Infrastructure Layer: Implements data access (EF Core), external services (Hangfire), and configuration (appsettings.json).
+
+This separation ensures maintainability, testability, and scalability.
+
+
+🧠 Design Decisions Explanation
+
+Clean Architecture: Chosen for modularity and testability. It isolates business logic from infrastructure, making the system easier to maintain and extend.
+
+Entity Framework Core: Selected for its robust ORM capabilities, simplifying database operations and migrations.
+
+Hangfire: Used for background job processing (e.g., monthly contribution validation) due to its reliability and integration with ASP.NET Core.
+
+FluentValidation: Provides a clean, maintainable way to validate input data, reducing boilerplate code.
+
+SQL Server: Chosen for its enterprise-grade features and compatibility with EF Core.
+
+Swagger: Included for interactive API documentation, improving developer experience.
+
+Soft Deletes: Implemented to preserve historical data while allowing logical deletion of members.
+
+These decisions balance performance, scalability, and developer productivity.
+
+
 📞 Contact
 Author: Tosin Olorunnisola Email: codequeentosin@gmail.com GitHub: CodeQueenTosin
 Feel free to reach out for setup assistance, feature requests, or contributions!
