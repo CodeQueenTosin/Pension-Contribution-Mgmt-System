@@ -26,8 +26,6 @@ Swagger: API documentation and testing interface.
 Ensure the following tools are installed before setting up the project:
 
 
-Tool
-Purpose
 Installation
 
 .NET 8 SDK
